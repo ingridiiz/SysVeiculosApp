@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SysVeiculosApp.ModelosPrincipal"
+             Title="Modelos">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label 
+            Text="Aqui conterá um grid contendo os modelos cadastrados, para cada item conterá uma opção de edição (Update) e remoção (Delete), conforme protótipo."
+            VerticalTextAlignment="Center" 
+            HeightRequest="400"
+            Style="{StaticResource HeadLine}"
+            SemanticProperties.HeadingLevel="Level1"/>
+
+            <Button Text="Inserir" Clicked="btnInserirOnClick"/>
+            <Button Text="Alterar" Clicked="btnAlterar_Clicked"/>
+            <Button Text="Excluir" Clicked="btnExcluir_Clicked" BackgroundColor="#D32F2F" TextColor="White"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
