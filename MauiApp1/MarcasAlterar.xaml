@@ -2,17 +2,23 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SysVeiculosApp.MarcasAlterar"
-             Title=":: MARCA > ALTERAR ::">
+             Title="Alterar Marca">
 
-    <VerticalStackLayout Padding="20" Spacing="15">
-        <Label Text="Aqui conterão campos para alterar o cadastro da marca selecionada."
-               VerticalOptions="Center"
-               HeightRequest="400"
-               Style="{StaticResource Headline}"
-               SemanticProperties.HeadingLevel="Level1" />
+    <ScrollView>
+        <VerticalStackLayout Padding="0" Spacing="15">
+            <Label Text="Alterar Cadastro de Marca" 
+                   FontSize="20" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center" />
 
-        <Button x:Name="btnSalvar" Text="Salvar"/>
-        <Button x:Name="btnVoltar" Text="Voltar"/>
-    </VerticalStackLayout>
+            <Label Text="Nome da Marca:" FontAttributes="Bold" />
+            <Entry x:Name="txtMarNome" Placeholder="Digite o novo nome da marca" />
+
+            <Label Text="Observações:" FontAttributes="Bold" />
+            <Editor x:Name="txtMarObservacoes" Placeholder="Digite as novas observações" HeightRequest="80" />
+
+            <Button x:Name="btnSalvar" Text="Salvar" Clicked="btnSalvarOnClick" BackgroundColor="#2E7D32" TextColor="White" />
+            <Button x:Name="btnVoltar" Text="Voltar" Clicked="btnVoltarOnClick" BackgroundColor="#757575" TextColor="White" />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
-    
