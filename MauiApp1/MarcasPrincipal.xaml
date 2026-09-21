@@ -3,18 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SysVeiculosApp.MarcasPrincipal"
              Title="MarcasPrincipal">
+
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
-            <Label 
-            Text="Aqui conterá um grid contendo as marcas cadastradas, para cada item conterá uma opção de edição (Update) e remoção (Delete), conforme protótipo."
-            VerticalTextAlignment="Center" 
-            HeightRequest="400"
-            Style="{StaticResource HeadLine}"
-            SemanticProperties.HeadingLevel="Level1"/>
+
+            <CollectionView x:Name="collectionViewMarcas" 
+                            HeightRequest="350" 
+                            SelectionMode="Single" 
+                            SelectionChanged="collectionViewMarcas_SelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout Padding="10" BackgroundColor="#F5F5F5">
+                            <Label Text="{Binding marnome}" FontSize="18" FontAttributes="Bold" TextColor="Black" />
+                            <Label Text="{Binding marobservacoes}" FontSize="14" TextColor="Gray" />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
             <Button Text="Inserir" Clicked="btnInserir_Clicked"/>
             <Button Text="Alterar" Clicked="btnAlterar_Clicked"/>
-            <Button Text="Excluir" Clicked="btnExcluir_Clicked" BackgroundColor="#D32F2F" TextColor="White"/>
+            <Button Text="Excluir" Clicked="btnExcluir_Clicked" BackgroundColor="#D32F2F" TextColor="White" />
 
         </VerticalStackLayout>
     </ScrollView>

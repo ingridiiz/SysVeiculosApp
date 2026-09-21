@@ -3,18 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SysVeiculosApp.ModelosPrincipal"
              Title="Modelos">
+
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
-            <Label 
-            Text="Aqui conterá um grid contendo os modelos cadastrados, para cada item conterá uma opção de edição (Update) e remoção (Delete), conforme protótipo."
-            VerticalTextAlignment="Center" 
-            HeightRequest="400"
-            Style="{StaticResource HeadLine}"
-            SemanticProperties.HeadingLevel="Level1"/>
 
-            <Button Text="Inserir" Clicked="btnInserirOnClick"/>
-            <Button Text="Alterar" Clicked="btnAlterar_Clicked"/>
-            <Button Text="Excluir" Clicked="btnExcluir_Clicked" BackgroundColor="#D32F2F" TextColor="White"/>
+            <CollectionView x:Name="collectionViewModelos"
+                            SelectionMode="Single"
+                            SelectionChanged="collectionViewModelos_SelectionChanged"
+                            HeightRequest="400">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        
+                        <Border BackgroundColor="White"
+                                Stroke="White"
+                                Padding="15"
+                                Margin="-20,5">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="0" />
+                            </Border.StrokeShape>
+
+                            <VerticalStackLayout>
+                                <Label Text="{Binding modnome}" FontSize="18" FontAttributes="Bold" TextColor="Black" />
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button Text="Inserir" Clicked="btnInserirOnClick" />
+            <Button Text="Alterar" Clicked="btnAlterar_Clicked" />
+            <Button Text="Excluir" Clicked="btnExcluir_Clicked" BackgroundColor="#D32F2F" TextColor="White" />
 
         </VerticalStackLayout>
     </ScrollView>

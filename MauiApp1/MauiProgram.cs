@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using System.IO; 
 
 namespace SysVeiculosApp
 {
@@ -16,8 +17,12 @@ namespace SysVeiculosApp
                 });
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
+
+           
+            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "veiculos.db3");
+            builder.Services.AddSingleton(s => new DatabaseHelper(dbPath));
 
             return builder.Build();
         }

@@ -1,20 +1,29 @@
-namespace SysVeiculosApp;
+using Microsoft.Maui.Controls;
+using SysVeiculosApp;
 
-public partial class ModelosInserir : ContentPage
+namespace SysVeiculosApp
 {
-    public ModelosInserir()
+    public partial class ModelosInserir : ContentPage
     {
-        InitializeComponent();
-    }
+        public ModelosInserir()
+        {
+            InitializeComponent();
+        }
 
-    private async void btnSalvarOnClick(object sender, EventArgs e)
-    {
-        await DisplayAlertAsync("Sucesso", "Modelo salvo com sucesso!", "OK");
-        await Navigation.PopAsync();
-    }
+        private async void btnSalvarOnClick(object sender, EventArgs e)
+        {
+            Modelo novoModelo = new Modelo();
+            novoModelo.modnome = txtNomeModelo.Text;
+            novoModelo.modobservacoes = txtMarcaModelo.Text;
 
-    private async void btnVoltarOnClick(object sender, EventArgs e)
-    {
-        await Navigation.PopAsync();
+            await App.Database.SalvarModeloAsync(novoModelo);
+            await DisplayAlertAsync("Sucesso", "Modelo salvo com sucesso!", "OK");
+            await Navigation.PopAsync();
+        }
+
+        private async void btnVoltarOnClick(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
     }
 }

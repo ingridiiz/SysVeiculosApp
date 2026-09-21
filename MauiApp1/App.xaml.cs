@@ -1,17 +1,17 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using SysVeiculosApp;
 
-namespace SysVeiculosApp
+namespace SysVeiculosApp;
+
+public partial class App : Application
 {
-    public partial class App : Application
-    {
-        public App()
-        {
-            InitializeComponent();
-        }
+   
+    public static DatabaseHelper Database { get; private set; }
 
-        protected override Window CreateWindow(IActivationState? activationState)
-        {
-            return new Window(new AppShell());
-        }
+    public App(DatabaseHelper databaseHelper)
+    {
+        InitializeComponent();
+
+        Database = databaseHelper;
+        MainPage = new AppShell();
     }
 }
