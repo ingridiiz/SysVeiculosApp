@@ -41,8 +41,8 @@ namespace SysVeiculosApp
                 return;
             }
 
-          
-            await DisplayAlertAsync("Aviso", "Módulo de alteração em desenvolvimento.", "OK");
+            
+            await Navigation.PushAsync(new ModelosAlterar(modeloSelecionado));
         }
 
         private async void btnExcluir_Clicked(object sender, EventArgs e)

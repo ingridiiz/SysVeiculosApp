@@ -1,4 +1,5 @@
 using Microsoft.Maui.Controls;
+using System;
 using SysVeiculosApp;
 
 namespace SysVeiculosApp
@@ -12,12 +13,25 @@ namespace SysVeiculosApp
 
         private async void btnSalvarOnClick(object sender, EventArgs e)
         {
-            Modelo novoModelo = new Modelo();
-            novoModelo.modnome = txtNomeModelo.Text;
-            novoModelo.modobservacoes = txtMarcaModelo.Text;
+          
+            int.TryParse(txtMarcaModelo.Text, out int marcaId);
+
+            Modelo novoModelo = new Modelo()
+            {
+                modnome = txtNomeModelo.Text,
+                marid = txtMarcaModelo.Text
+            };
+
+            if (string.IsNullOrWhiteSpace(novoModelo.modnome))
+            {
+                await DisplayAlertAsync("Erro", "Por favor, insere o nome do modelo.", "OK");
+                return;
+            }
 
             await App.Database.SalvarModeloAsync(novoModelo);
-            await DisplayAlertAsync("Sucesso", "Modelo salvo com sucesso!", "OK");
+
+            await DisplayAlertAsync("Sucesso", "Modelo guardado com sucesso!", "OK");
+
             await Navigation.PopAsync();
         }
 

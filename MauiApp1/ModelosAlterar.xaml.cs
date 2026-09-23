@@ -1,20 +1,40 @@
-namespace SysVeiculosApp;
+using Microsoft.Maui.Controls;
+using System;
+using SysVeiculosApp;
 
-public partial class ModelosAlterar : ContentPage
+namespace SysVeiculosApp
 {
-    public ModelosAlterar()
+    public partial class ModelosAlterar : ContentPage
     {
-        InitializeComponent();
-    }
+        private Modelo modeloSelecionado;
 
-    private async void btnSalvarOnClick(object sender, EventArgs e)
-    {
-        await DisplayAlertAsync("Sucesso", "Alteração salva com sucesso!", "OK");
-        await Navigation.PopAsync();
-    }
+        public ModelosAlterar(Modelo modelo)
+        {
+            InitializeComponent();
+            modeloSelecionado = modelo;
 
-    private async void btnVoltarOnClick(object sender, EventArgs e)
-    {
-        await Navigation.PopAsync();
+            txtNomeModelo.Text = modeloSelecionado.modnome;
+            txtMarcaModelo.Text = modeloSelecionado.marid.ToString();
+
+            
+        }
+
+        private async void btnSalvarOnClick(object sender, EventArgs e)
+        {
+            modeloSelecionado.modnome = txtNomeModelo.Text;
+
+            modeloSelecionado.marid = txtMarcaModelo.Text;
+
+
+            await App.Database.SalvarModeloAsync(modeloSelecionado);
+
+            await DisplayAlertAsync("Sucesso", "Alteração salva com sucesso!", "OK");
+            await Navigation.PopAsync();
+        }
+
+        private async void btnVoltarOnClick(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
     }
 }

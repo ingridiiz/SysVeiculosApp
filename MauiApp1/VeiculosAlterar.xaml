@@ -6,16 +6,22 @@
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
-            <Label Text="Alterar Cadastro de Veículo" 
-                   FontSize="20" 
-                   FontAttributes="Bold" 
+            <Label Text="Alterar Cadastro de Veículo"
+                   FontSize="20"
+                   FontAttributes="Bold"
                    HorizontalOptions="Center" />
 
-            <Label Text="Placa do Veículo:" FontAttributes="Bold" />
-            <Entry x:Name="txtPlaca" Placeholder="Digite a nova placa" />
+            <Label Text="Nome do Veículo:" FontAttributes="Bold" />
+            <Entry x:Name="txtNomeVeiculo" Placeholder="Digite o nome do veículo" />
 
-            <Label Text="Ano do Veículo:" FontAttributes="Bold" />
-            <Entry x:Name="txtAno" Placeholder="Digite o novo ano" Keyboard="Numeric" />
+            <Label Text="Ano de Fabricação:" FontAttributes="Bold" />
+            <Entry x:Name="txtAnoFabricacao" Placeholder="Digite o ano de fabricação" Keyboard="Numeric" />
+
+            <Label Text="Ano do Modelo:" FontAttributes="Bold" />
+            <Entry x:Name="txtAnoModelo" Placeholder="Digite o ano do modelo" Keyboard="Numeric" />
+
+            <Label Text="Observações:" FontAttributes="Bold" />
+            <Entry x:Name="txtObservacoes" Placeholder="Digite as observações" />
 
             <Button x:Name="btnSalvar" Text="Salvar" Clicked="btnSalvarOnClick" BackgroundColor="#2E7D32" TextColor="White" />
             <Button x:Name="btnVoltar" Text="Voltar" Clicked="btnVoltarOnClick" BackgroundColor="#757575" TextColor="White" />

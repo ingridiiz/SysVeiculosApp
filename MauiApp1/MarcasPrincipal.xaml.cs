@@ -40,7 +40,6 @@ namespace SysVeiculosApp
                 return;
             }
 
-          
             await Navigation.PushAsync(new MarcasAlterar(marcaSelecionada));
         }
 

@@ -6,16 +6,19 @@
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
-            <Label Text="Alterar Cadastro de Modelo" 
-                   FontSize="20" 
-                   FontAttributes="Bold" 
+            <Label Text="Alterar Cadastro de Modelo"
+                   FontSize="20"
+                   FontAttributes="Bold"
                    HorizontalOptions="Center" />
 
             <Label Text="Nome do Modelo:" FontAttributes="Bold" />
-            <Entry x:Name="txtNomeModelo" Placeholder="Digite o novo nome do modelo" />
+            <Entry x:Name="txtNomeModelo" Placeholder="Digite o nome do modelo" />
 
             <Label Text="Marca:" FontAttributes="Bold" />
-            <Entry x:Name="txtMarcaModelo" Placeholder="Digite a nova marca" />
+            <Entry x:Name="txtMarcaModelo" Placeholder="Digite a marca" />
+
+            <Label Text="Observações:" FontAttributes="Bold" />
+            <Entry x:Name="txtObservacoesModelo" Placeholder="Digite as observações" />
 
             <Button x:Name="btnSalvar" Text="Salvar" Clicked="btnSalvarOnClick" BackgroundColor="#2E7D32" TextColor="White" />
             <Button x:Name="btnVoltar" Text="Voltar" Clicked="btnVoltarOnClick" BackgroundColor="#757575" TextColor="White" />

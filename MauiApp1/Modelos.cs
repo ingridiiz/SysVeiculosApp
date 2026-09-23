@@ -18,6 +18,7 @@ namespace SysVeiculosApp
         public int modid { get; set; }
         public string modnome { get; set; }
         public string modobservacoes { get; set; }
+        public string marid { get; set; }
     }
 
     [Table("tblveiculos")]

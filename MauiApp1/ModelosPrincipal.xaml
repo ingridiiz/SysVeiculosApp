@@ -13,24 +13,28 @@
                             HeightRequest="400">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        
+
                         <Border BackgroundColor="White"
-                                Stroke="White"
+                                Stroke="#E0E0E0"
+                                StrokeThickness="1"
                                 Padding="15"
-                                Margin="-20,5">
+                                Margin="0,5">
                             <Border.StrokeShape>
-                                <RoundRectangle CornerRadius="0" />
+                                <RoundRectangle CornerRadius="8" />
                             </Border.StrokeShape>
 
-                            <VerticalStackLayout>
+                            <VerticalStackLayout Spacing="3">
+
                                 <Label Text="{Binding modnome}" FontSize="18" FontAttributes="Bold" TextColor="Black" />
+                                <Label Text="{Binding marid, StringFormat='Marca: {0}'}" FontSize="14" TextColor="Gray" />
                             </VerticalStackLayout>
                         </Border>
+
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Button Text="Inserir" Clicked="btnInserirOnClick" />
+            <Button Text="Inserir" Clicked="btnInserirOnClick" BackgroundColor="#512BD4" TextColor="White" />
             <Button Text="Alterar" Clicked="btnAlterar_Clicked" />
             <Button Text="Excluir" Clicked="btnExcluir_Clicked" BackgroundColor="#D32F2F" TextColor="White" />
 
